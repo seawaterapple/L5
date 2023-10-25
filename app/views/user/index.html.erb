@@ -1,0 +1,33 @@
+<%= stylesheet_link_tag  "application.css"%>
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
+<% @tweets.each do |e| %>
+    <b>
+        <p>
+        <%= image_tag 'obake.png'%>
+        </p>
+        <a><%= image_tag 'people.png' %>山田</a>
+        <%= ((Time.current - e.tdate)/60).to_i %>分
+        <p>
+            <%= e.message %>
+            <%=link_to '削除', "/tweets/#{e.id}", data: { turbo_method: :delete } %>
+            <%=link_to '表示', "/tweets/#{e.id}" %>
+            <%=link_to '編集', "/tweets/#{e.id}/edit" %>
+        </p>
+      </b>
+    <div class="sidebar">
+    <br><%= image_tag 'home.png'%>ホーム</br>
+    <br><%= image_tag 'hash.png'%>話題を検索</br>
+    <br><%= image_tag 'bell.png'%>通知</br>
+    <br><%= image_tag 'letter.png'%>メッセージ</br>
+    <br><%= image_tag 'bookmrk.png'%>ブックマーク</br>
+    <br><%= image_tag 'list.png'%>リスト</br>
+    <br><%= image_tag 'user.png'%>プロフィール</br>
+    <br><%= image_tag 'etc.jpg'%>その他</br>
+    
+    </div>
+<% end %>
+
+<%= link_to 'ポスト', 'tweets/new' %>
