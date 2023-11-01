@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources:users
+  get 'user/index'
+  get 'user/new'
   root 'users#index'
-  post 'top/login'
-  get 'top/logout'
 end

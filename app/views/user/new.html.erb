@@ -1,14 +1,9 @@
-<% if @tweet.errors.present? %>
-    <h3>エラーがあります。</h3>
-    <ul>
-        <% @tweet.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<%= form_for @tweet , url: {action: :create} do |f| %>
-    <%= f.label :message, 'メッセージ' %>
-    <%= f.text_field :message %>
+<%= form_for @user,url:{action: :create} do |f|%>
+    <%= f.label :uid, "UID" %>
+    <%= f.text :uid %>
+    <%= f.label :pass, "PASS" %>
+    <%= f.password :pass %>
+    <%= f.label :age, "AGE" %>
+    <%= f.text :age %>
     <%= f.submit '登録' %>
-<% end %>
+<%= end %>
