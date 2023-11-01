@@ -1,4 +1,4 @@
-<%= form_for @user,url:{action: :create} do |f|%>
+<%= form_for @user, url:{action: :create} do |f|%>
     <%= f.label :uid, "UID" %>
     <%= f.text :uid %>
     <%= f.label :pass, "PASS" %>
@@ -6,4 +6,4 @@
     <%= f.label :age, "AGE" %>
     <%= f.text :age %>
     <%= f.submit '登録' %>
-<%= end %>
+<% end %>
