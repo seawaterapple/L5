@@ -1,4 +1,4 @@
-class TopController < ApplicationController 
+class TopController < ApplicationController
     def main
         if session[:login_uid] != nil
             render "main"
@@ -9,7 +9,7 @@ class TopController < ApplicationController
     
     def login
         logger.debug params[:uid]
-        if Use.find_by(uid: params[:uid]) and Use.find_by(pass: params[:pass])
+        if User.find_by(uid: params[:uid]) and User.find_by(pass: params[:pass])
             session[:login_uid] = params[:uid]
             redirect_to top_main_path
         else
@@ -19,6 +19,6 @@ class TopController < ApplicationController
     
     def logout
         session.delete(:login_uid)
-        redirect_to top_main_path
+        redirect_to root_path
     end
 end

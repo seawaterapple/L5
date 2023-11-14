@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :tweets
   resources :likes, only: [:create, :destroy]
   resources :users
-  root 'users#index'
+  root 'tweets#index'
 end
