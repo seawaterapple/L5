@@ -13,7 +13,7 @@ class TopController < ApplicationController
             session[:login_uid] = params[:uid]
             redirect_to top_main_path
         else
-            render "error"
+            render "login"
         end
     end
     
